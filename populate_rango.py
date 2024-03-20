@@ -31,9 +31,9 @@ def populate():
             if cat['student'] == student_data:
                 add_cat(cat['name'], s)
 
-    for s in students.objects.all():
-        for c in Cat.objects.filter(students=s):
-            print(f'- {c}: {s}')
+    for student in Student.objects.all():
+        for cat in Cat.objects.filter(student=student):
+            print(f'- {cat.name}: {student.forename}')
 
 
 def add_student(forename, surname, cat_numb=0):

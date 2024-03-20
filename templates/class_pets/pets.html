@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+    <title>pets</title>
+    </head>
+
+    <body>
+        <div>
+            <img src="{% static 'images/cats_with_fire.jpg' %}" alt="Picture of a Cat with fire" />
+            <h1>All the cats are:</h1>
+        </div>
+
+        <div>
+            {% if Cat%}
+            <ul>
+                {% for c in Cat %}
+                <li>
+                    {{c.name}}
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+                <strong>No Cats To Show :( </strong>
+            {% endif %}
+        </div>
+
+
+
+        <div>
+            <p>Click to go back <a href="{% url 'pets_for_students:index' %}">home</a></p>
+        </div>
+    </body>
+</html>

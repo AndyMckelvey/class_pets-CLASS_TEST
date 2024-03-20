@@ -18,3 +18,12 @@ def index(request):
 
     # Render the response and send it back!
     return render(request, 'class_pets/index.html', context=context_dict)
+
+def pets(request):
+
+    cat_list = Cat.objects.order_by('name')
+
+    context_dict = {}
+    context_dict['Cat'] = cat_list
+
+    return render(request, 'class_pets/pets.html', context=context_dict)
