@@ -25,12 +25,14 @@ def populate():
         {'name': 'Joe', 'student': students['Azam']},
     ]
 
+    # Populates table
     for student, student_data in students.items():
         s = add_student(student_data['for_name'], student_data['sir_name'])
         for cat in cats:
             if cat['student'] == student_data:
                 add_cat(cat['name'], s)
 
+    # Displays Changes
     for student in Student.objects.all():
         for cat in Cat.objects.filter(student=student):
             print(f'- {cat.name}: {student.forename}')

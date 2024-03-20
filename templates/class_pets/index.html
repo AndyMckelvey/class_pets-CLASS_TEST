@@ -26,17 +26,18 @@
                             {{ s.forename }} {{ s.surname }} has <strong>no</strong> cats
                         {% endif %}
                     </li>
+                        <div>
+                            <ul>
+                                {% for c in Cat %}
+                                    {% if s == c.student %}
+                                    <li>
+                                        {{ c.name }}
+                                    </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
 
-                        <ul>
-                        {% for c in Cat %}
-
-                            {% if s == c.student %}
-                            <li>
-                                {{ c.name }}
-                            </li>
-                            {% endif %}
-                        {% endfor %}
-                        </ul>
                     {% endfor %}
                 </ul>
             {% else %}

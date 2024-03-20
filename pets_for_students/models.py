@@ -10,6 +10,7 @@ class Student(models.Model):
         return self.surname
 
 
+# Ensures that if the student is deleted it removes all the connected cats
 class Cat(models.Model):
     name = models.CharField(max_length=128)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
