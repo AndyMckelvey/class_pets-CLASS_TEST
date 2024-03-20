@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Students</title>
+    </head>
+
+    <body>
+
+        <div>
+            <img src="{% static 'images/cat.png' %}" alt="Picture of a Cat" />
+            <h1>The Students and their cats are:</h1>
+        </div>
+
+        <div>
+            {% if Student%}
+                <ul>
+                    {% for s in Student %}
+                    <li>
+                        {% if s.cat_numb > 1%}
+                            {{ s.forename }} {{ s.surname }} has <strong>{{ s.cat_numb }}</strong> cats
+                        {% elif s.cat_numb == 1%}
+                            {{ s.forename }} {{ s.surname }} has <strong>{{ s.cat_numb }}</strong> cat
+                        {% else %}
+                            {{ s.forename }} {{ s.surname }} has <strong>no</strong> cats
+                        {% endif %}
+                    </li>
+
+                        <ul>
+                        {% for c in Cat %}
+
+                            {% if s == c.student %}
+                            <li>
+                                {{ c.name }}
+                            </li>
+                            {% endif %}
+                        {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <strong>There are no Students present.</strong>
+            {% endif %}
+        </div>
+    </body>
+</html>
