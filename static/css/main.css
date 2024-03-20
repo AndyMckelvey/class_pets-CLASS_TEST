@@ -1,0 +1,14 @@
+#Home {
+    background-color: lightgray;
+    border: 5px solid black;
+}
+
+#Student {
+    color: limegreen;
+    font-size: 20px;
+}
+
+#Cat {
+    color: blue;
+    font-size: 15px;
+}

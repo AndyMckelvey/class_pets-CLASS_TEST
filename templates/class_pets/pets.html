@@ -3,7 +3,8 @@
 
 <html>
     <head>
-    <title>pets</title>
+        <title>pets</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     </head>
 
     <body>
@@ -14,9 +15,9 @@
 
         <div>
             {% if Cat%}
-            <ul>
+            <ul id="Home">
                 {% for c in Cat %}
-                <li>
+                <li id="Cat">
                     {{c.name}}
                 </li>
                 {% endfor %}

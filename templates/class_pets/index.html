@@ -4,6 +4,7 @@
 <html>
     <head>
         <title>Students</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     </head>
 
     <body>
@@ -15,9 +16,9 @@
 
         <div>
             {% if Student%}
-                <ul>
+                <ul id="Home">
                     {% for s in Student %}
-                    <li>
+                    <li id="Student">
                         {% if s.cat_numb > 1%}
                             {{ s.forename }} {{ s.surname }} has <strong>{{ s.cat_numb }}</strong> cats
                         {% elif s.cat_numb == 1%}
@@ -30,7 +31,7 @@
                             <ul>
                                 {% for c in Cat %}
                                     {% if s == c.student %}
-                                    <li>
+                                    <li id="Cat">
                                         {{ c.name }}
                                     </li>
                                     {% endif %}
